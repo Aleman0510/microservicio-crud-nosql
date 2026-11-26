@@ -1,0 +1,16 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    container_name: microservicio-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: aram
+      MONGO_INITDB_ROOT_PASSWORD: mongo123
+      MONGO_INITDB_DATABASE: microservicio
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:
